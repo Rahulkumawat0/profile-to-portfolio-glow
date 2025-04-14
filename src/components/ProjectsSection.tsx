@@ -10,6 +10,7 @@ interface ProjectCardProps {
   githubLink?: string;
   liveLink?: string;
   reverse?: boolean;
+  period: string;
 }
 
 const ProjectCard = ({
@@ -19,7 +20,8 @@ const ProjectCard = ({
   technologies,
   githubLink,
   liveLink,
-  reverse = false
+  reverse = false,
+  period
 }: ProjectCardProps) => {
   return (
     <div className={`flex flex-col ${reverse ? 'md:flex-row-reverse' : 'md:flex-row'} gap-8 mb-20`}>
@@ -35,7 +37,10 @@ const ProjectCard = ({
       
       {/* Project Details */}
       <div className="w-full md:w-1/2 flex flex-col justify-center">
-        <h3 className="text-2xl font-bold mb-3">{title}</h3>
+        <div className="flex justify-between items-center mb-3">
+          <h3 className="text-2xl font-bold">{title}</h3>
+          <span className="text-sm text-portfolio-purple">{period}</span>
+        </div>
         <div className="p-6 bg-white/5 rounded-lg mb-4 shadow-lg">
           <p className="text-gray-300">{description}</p>
         </div>
@@ -84,35 +89,35 @@ const ProjectCard = ({
 const ProjectsSection = () => {
   const projects = [
     {
-      title: "E-commerce Platform",
-      description: "A full-featured e-commerce platform with product listings, cart functionality, user authentication, and payment processing. The application was built with a modern tech stack and focuses on performance and user experience.",
-      image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&w=800&q=80",
-      technologies: ["React", "Node.js", "MongoDB", "Stripe API", "Redux"],
-      githubLink: "https://github.com",
-      liveLink: "https://example.com"
+      title: "Disease Classification System",
+      description: "Developed a high-accuracy system for early detection of heart attack, breast cancer, & diabetes using advanced machine learning algorithms and data preprocessing techniques.",
+      image: "https://images.unsplash.com/photo-1576671081803-5dcb9836dc61?auto=format&fit=crop&w=800&q=80",
+      technologies: ["Python", "Streamlit", "Machine Learning", "Scikit-Learn", "Data Preprocessing"],
+      githubLink: "https://github.com/rahul-kumawat-8780",
+      period: "Oct 2022 - Dec 2022"
     },
     {
-      title: "Task Management App",
-      description: "A comprehensive task management application designed to help teams collaborate efficiently. Features include real-time updates, task assignment, due dates, and progress tracking.",
-      image: "https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?auto=format&fit=crop&w=800&q=80",
-      technologies: ["React", "Firebase", "Material UI", "Context API"],
-      githubLink: "https://github.com",
-      liveLink: "https://example.com"
+      title: "Movie Recommendation System",
+      description: "Built a content-based movie recommendation system that analyzes user preferences and viewing history to suggest personalized movie recommendations, boosting engagement and user satisfaction.",
+      image: "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=800&q=80",
+      technologies: ["Python", "Streamlit", "Machine Learning", "NLP", "Content-Based Filtering"],
+      githubLink: "https://github.com/rahul-kumawat-8780",
+      period: "Jul 2022 - Aug 2022"
     },
     {
-      title: "Weather Dashboard",
-      description: "A weather application that provides real-time weather data and forecasts for locations around the world. The app includes interactive maps, temperature graphs, and weather alerts.",
-      image: "https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?auto=format&fit=crop&w=800&q=80",
-      technologies: ["JavaScript", "OpenWeather API", "Chart.js", "Mapbox"],
-      githubLink: "https://github.com",
-      liveLink: "https://example.com"
+      title: "E-commerce Optimization Project",
+      description: "Enhanced site design, performance, and functionality for an e-commerce platform, resulting in a 40% improvement in load times and increased user engagement through technical optimizations.",
+      image: "https://images.unsplash.com/photo-1472851294608-062f824d29cc?auto=format&fit=crop&w=800&q=80",
+      technologies: ["JavaScript", "Python", "API Integration", "Performance Optimization"],
+      period: "Mar 2023 - Present"
     }
   ];
 
   return (
     <section id="projects" className="py-20 bg-portfolio-dark/70">
       <div className="container mx-auto px-4 md:px-6">
-        <h2 className="section-title">Featured Projects</h2>
+        <h2 className="section-title text-3xl font-bold text-center mb-2">Featured Projects</h2>
+        <p className="text-gray-400 text-center mb-10 max-w-2xl mx-auto">A showcase of my technical skills and problem-solving abilities</p>
         
         <div className="mt-10">
           {projects.map((project, index) => (
@@ -125,16 +130,9 @@ const ProjectsSection = () => {
               githubLink={project.githubLink}
               liveLink={project.liveLink}
               reverse={index % 2 !== 0}
+              period={project.period}
             />
           ))}
-        </div>
-        
-        <div className="text-center mt-10">
-          <Button
-            className="bg-portfolio-purple hover:bg-portfolio-light-purple text-white"
-          >
-            View All Projects
-          </Button>
         </div>
       </div>
     </section>

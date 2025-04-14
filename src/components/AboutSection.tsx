@@ -6,31 +6,32 @@ const AboutSection = () => {
   return (
     <section id="about" className="py-20">
       <div className="container mx-auto px-4 md:px-6">
-        <h2 className="section-title">About Me</h2>
+        <h2 className="section-title text-3xl font-bold text-center mb-2">About Me</h2>
+        <p className="text-gray-400 text-center mb-10 max-w-2xl mx-auto">Get to know me beyond the resume</p>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mt-10">
           <div className="space-y-6">
             <p className="text-gray-300">
-              Hello! I'm John, a passionate software developer with a keen interest in creating
-              meaningful digital experiences. My journey in tech began in 2016 when I started
-              tinkering with HTML and CSS to make custom Tumblr themes — turns out, that early
-              interest would spark my path into software development.
+              Hello! I'm Rahul, a motivated Software Engineer with a solid foundation in Computer Science & Engineering.
+              I'm passionate about Web Development, Data Science, and Machine Learning. My journey in tech began during my
+              B.Tech studies where I developed a strong understanding of core computer science concepts.
             </p>
             <p className="text-gray-300">
-              Since then, I've had the privilege of working at a start-up, a large corporation,
-              and as a freelancer. My focus is building accessible, inclusive products and digital
-              experiences for a variety of clients.
+              Currently, I'm working as an Associate Software Engineer at CommerceV3, where I've enhanced e-commerce site design,
+              performance, and functionality, resulting in significant improvements in load times and user engagement. I've also
+              led API integrations and mentored junior team members.
             </p>
             <p className="text-gray-300">
-              I'm a lifelong learner who constantly looks to improve my craft. When I'm not at the
-              computer, I'm usually rock climbing, reading, or exploring new coffee shops in the city.
+              Skilled in leveraging technical expertise to develop innovative solutions, I am eager to contribute to a dynamic
+              tech environment and drive organizational success. I'm constantly learning and improving my skills to stay ahead
+              in this rapidly evolving tech landscape.
             </p>
             
             <div className="pt-4">
               <h3 className="text-xl font-semibold mb-3">Connect with me:</h3>
               <div className="flex space-x-4">
                 <a 
-                  href="https://github.com" 
+                  href="https://github.com/rahul-kumawat-8780" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="text-gray-300 hover:text-portfolio-purple transition-colors"
@@ -38,7 +39,7 @@ const AboutSection = () => {
                   <Github size={24} />
                 </a>
                 <a 
-                  href="https://linkedin.com" 
+                  href="https://www.linkedin.com/in/rahul-kumawat-8780/" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="text-gray-300 hover:text-portfolio-purple transition-colors"
@@ -58,11 +59,31 @@ const AboutSection = () => {
               <div className="absolute inset-0 rounded-lg border-2 border-portfolio-purple animate-glow-pulse"></div>
               <div className="absolute inset-0 bg-portfolio-dark rounded-lg overflow-hidden">
                 <img 
-                  src="https://images.unsplash.com/photo-1556157382-97eda2f9296e?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80" 
-                  alt="John Doe" 
+                  src="/lovable-uploads/0a570604-5e10-4a73-b9db-8c7d04f080c7.png" 
+                  alt="Rahul Kumawat" 
                   className="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity"
                 />
               </div>
+            </div>
+            
+            <div className="mt-6 text-center">
+              <p className="text-portfolio-purple font-medium">📍 India</p>
+              <p className="text-gray-300">
+                <a 
+                  href="mailto:rahulkumawat200901@gmail.com"
+                  className="hover:text-portfolio-purple transition-colors"
+                >
+                  rahulkumawat200901@gmail.com
+                </a>
+              </p>
+              <p className="text-gray-300">
+                <a 
+                  href="tel:+918780948614"
+                  className="hover:text-portfolio-purple transition-colors"
+                >
+                  +91 8780948614
+                </a>
+              </p>
             </div>
           </div>
         </div>

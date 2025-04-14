@@ -1,5 +1,5 @@
 
-import { Code, Database, Layout, Server } from 'lucide-react';
+import { Code, Database, Layout, Server, ChartBar, Brain } from 'lucide-react';
 
 interface SkillCardProps {
   title: string;
@@ -27,33 +27,44 @@ const SkillCard = ({ title, skills, icon }: SkillCardProps) => {
 const SkillsSection = () => {
   const skillCategories = [
     {
-      title: "Frontend Development",
-      icon: <Layout size={28} />,
-      skills: ["HTML & CSS", "JavaScript", "React.js", "TypeScript", "Next.js", "Tailwind CSS"]
-    },
-    {
-      title: "Backend Development",
-      icon: <Server size={28} />,
-      skills: ["Node.js", "Express.js", "Python", "Django", "REST APIs", "GraphQL"]
-    },
-    {
-      title: "Database",
-      icon: <Database size={28} />,
-      skills: ["MongoDB", "PostgreSQL", "MySQL", "Firebase", "Redis", "Prisma"]
-    },
-    {
-      title: "Other Skills",
+      title: "Core Engineering",
       icon: <Code size={28} />,
-      skills: ["Git & GitHub", "Docker", "AWS", "CI/CD", "Jest", "Figma"]
+      skills: ["DSA", "OOP", "RDBMS", "API Integration", "Troubleshooting"]
+    },
+    {
+      title: "Programming Languages",
+      icon: <Server size={28} />,
+      skills: ["Python", "SQL", "C/C++", "Java", "JavaScript"]
+    },
+    {
+      title: "Web Development",
+      icon: <Layout size={28} />,
+      skills: ["HTML5", "CSS3", "Bootstrap", "Flask", "Streamlit", "WordPress"]
+    },
+    {
+      title: "Data Science",
+      icon: <ChartBar size={28} />,
+      skills: ["Pandas", "NumPy", "Matplotlib", "Seaborn", "Scikit-Learn"]
+    },
+    {
+      title: "Cloud & DevOps",
+      icon: <Database size={28} />,
+      skills: ["AWS", "Azure", "GCP", "Git", "GitHub", "GitLab", "MySQL", "OracleDB"]
+    },
+    {
+      title: "Machine Learning",
+      icon: <Brain size={28} />,
+      skills: ["Classification", "Regression", "Clustering", "NLP", "Feature Engineering"]
     }
   ];
 
   return (
     <section id="skills" className="py-20 bg-portfolio-dark/70">
       <div className="container mx-auto px-4 md:px-6">
-        <h2 className="section-title">Skills & Expertise</h2>
+        <h2 className="section-title text-3xl font-bold text-center mb-2">Skills & Expertise</h2>
+        <p className="text-gray-400 text-center mb-10 max-w-2xl mx-auto">A comprehensive toolkit built through academic excellence and professional experience</p>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
           {skillCategories.map((category, index) => (
             <SkillCard 
               key={index}

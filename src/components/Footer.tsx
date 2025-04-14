@@ -9,12 +9,12 @@ const Footer = () => {
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="text-gray-400 mb-4 md:mb-0">
-            © {year} John Doe. All rights reserved.
+            © {year} Rahul Kumawat. All rights reserved.
           </div>
           
           <div className="flex space-x-6">
             <a 
-              href="https://github.com" 
+              href="https://github.com/rahul-kumawat-8780" 
               target="_blank" 
               rel="noopener noreferrer"
               className="text-gray-400 hover:text-portfolio-purple transition-colors"
@@ -23,7 +23,7 @@ const Footer = () => {
               <Github size={20} />
             </a>
             <a 
-              href="https://linkedin.com" 
+              href="https://www.linkedin.com/in/rahul-kumawat-8780" 
               target="_blank" 
               rel="noopener noreferrer"
               className="text-gray-400 hover:text-portfolio-purple transition-colors"
@@ -32,7 +32,7 @@ const Footer = () => {
               <Linkedin size={20} />
             </a>
             <a 
-              href="mailto:john.doe@example.com" 
+              href="mailto:rahulkumawat200901@gmail.com" 
               className="text-gray-400 hover:text-portfolio-purple transition-colors"
               aria-label="Email"
             >

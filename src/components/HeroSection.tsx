@@ -21,15 +21,15 @@ const HeroSection = () => {
         <div className="flex flex-col items-start space-y-6 max-w-3xl">
           <p className="text-portfolio-purple font-medium">Hi, my name is</p>
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold">
-            John Doe
+            Rahul Kumawat
           </h1>
           <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-gray-400">
-            I build exceptional digital experiences.
+            I build innovative tech solutions.
           </h2>
           <p className="text-gray-400 text-lg md:text-xl max-w-xl mt-4">
-            I'm a software developer specializing in building (and occasionally designing) 
-            exceptional digital experiences. Currently, I'm focused on building accessible, 
-            human-centered products.
+            I'm a software engineer passionate about Web Development, Data Science, and Machine Learning. 
+            Currently, I'm focused on building optimized e-commerce solutions 
+            at CommerceV3.
           </p>
           
           <div className="flex space-x-4 mt-8">
