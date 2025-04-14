@@ -58,7 +58,7 @@ const AboutSection = () => {
               <div className="absolute inset-0 rounded-lg border-2 border-portfolio-purple animate-glow-pulse"></div>
               <div className="absolute inset-0 bg-portfolio-dark rounded-lg overflow-hidden">
                 <img 
-                  src="/lovable-uploads/0a570604-5e10-4a73-b9db-8c7d04f080c7.png" 
+                  src="/lovable-uploads/fcb79b6c-def6-457f-8d55-070d0256a5d0.png" 
                   alt="Rahul Kumawat" 
                   className="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity"
                 />
