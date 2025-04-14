@@ -94,6 +94,7 @@ const ProjectsSection = () => {
       image: "https://images.unsplash.com/photo-1576671081803-5dcb9836dc61?auto=format&fit=crop&w=800&q=80",
       technologies: ["Python", "Streamlit", "Machine Learning", "Scikit-Learn", "Data Preprocessing"],
       githubLink: "https://github.com/rahul-kumawat-8780",
+      liveLink: undefined, // Adding liveLink property (undefined)
       period: "Oct 2022 - Dec 2022"
     },
     {
@@ -102,6 +103,7 @@ const ProjectsSection = () => {
       image: "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=800&q=80",
       technologies: ["Python", "Streamlit", "Machine Learning", "NLP", "Content-Based Filtering"],
       githubLink: "https://github.com/rahul-kumawat-8780",
+      liveLink: undefined, // Adding liveLink property (undefined)
       period: "Jul 2022 - Aug 2022"
     },
     {
@@ -109,6 +111,8 @@ const ProjectsSection = () => {
       description: "Enhanced site design, performance, and functionality for an e-commerce platform, resulting in a 40% improvement in load times and increased user engagement through technical optimizations.",
       image: "https://images.unsplash.com/photo-1472851294608-062f824d29cc?auto=format&fit=crop&w=800&q=80",
       technologies: ["JavaScript", "Python", "API Integration", "Performance Optimization"],
+      githubLink: undefined, // Adding githubLink property (undefined)
+      liveLink: undefined, // Adding liveLink property (undefined)
       period: "Mar 2023 - Present"
     }
   ];
