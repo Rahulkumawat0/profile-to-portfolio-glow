@@ -55,7 +55,7 @@ const ContactSection = () => {
                 </div>
                 <div>
                   <h3 className="font-medium">Email</h3>
-                  <p className="text-gray-400">john.doe@example.com</p>
+                  <p className="text-gray-400">rahulkumawat200901@gmail.com</p>
                 </div>
               </div>
               
@@ -65,7 +65,7 @@ const ContactSection = () => {
                 </div>
                 <div>
                   <h3 className="font-medium">Phone</h3>
-                  <p className="text-gray-400">(123) 456-7890</p>
+                  <p className="text-gray-400">+91 8780948614</p>
                 </div>
               </div>
               
@@ -75,7 +75,7 @@ const ContactSection = () => {
                 </div>
                 <div>
                   <h3 className="font-medium">Social Media</h3>
-                  <p className="text-gray-400">@johndoe on LinkedIn</p>
+                  <p className="text-gray-400">@rahul-kumawat-8780 on LinkedIn</p>
                 </div>
               </div>
             </div>

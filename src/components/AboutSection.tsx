@@ -12,19 +12,18 @@ const AboutSection = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mt-10">
           <div className="space-y-6">
             <p className="text-gray-300">
-              Hello! I'm Rahul, a motivated Software Engineer with a solid foundation in Computer Science & Engineering.
+              Hello! I'm Rahul Kumawat, a motivated Software Engineer with a strong foundation in Computer Science & Engineering.
               I'm passionate about Web Development, Data Science, and Machine Learning. My journey in tech began during my
-              B.Tech studies where I developed a strong understanding of core computer science concepts.
+              B.Tech studies where I developed a solid understanding of core computer science concepts.
             </p>
             <p className="text-gray-300">
-              Currently, I'm working as an Associate Software Engineer at CommerceV3, where I've enhanced e-commerce site design,
-              performance, and functionality, resulting in significant improvements in load times and user engagement. I've also
-              led API integrations and mentored junior team members.
+              Currently working as an Associate Software Engineer, I have experience in enhancing e-commerce site design,
+              performance, and functionality. I've led API integrations and mentored junior team members, consistently 
+              driving improvements in load times and user engagement.
             </p>
             <p className="text-gray-300">
-              Skilled in leveraging technical expertise to develop innovative solutions, I am eager to contribute to a dynamic
-              tech environment and drive organizational success. I'm constantly learning and improving my skills to stay ahead
-              in this rapidly evolving tech landscape.
+              I am skilled in leveraging technical expertise to develop innovative solutions and am eager to contribute 
+              to dynamic tech environments. Continuous learning and skill improvement are key priorities in my professional journey.
             </p>
             
             <div className="pt-4">
