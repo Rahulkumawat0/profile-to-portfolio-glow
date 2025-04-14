@@ -1,5 +1,5 @@
 
-import { ArrowDown } from 'lucide-react';
+import { ArrowDown, Zap } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const HeroSection = () => {
@@ -31,6 +31,14 @@ const HeroSection = () => {
             Currently, I'm focused on building optimized e-commerce solutions 
             at CommerceV3.
           </p>
+          
+          <div className="bg-white/5 p-4 rounded-lg border border-portfolio-purple/20 flex items-start gap-3 max-w-xl">
+            <Zap size={24} className="text-portfolio-purple mt-1" />
+            <p className="text-gray-300">
+              I combine traditional engineering with AI-enhanced development to deliver efficient, 
+              high-quality solutions while significantly reducing development time.
+            </p>
+          </div>
           
           <div className="flex space-x-4 mt-8">
             <Button 

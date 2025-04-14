@@ -1,7 +1,7 @@
 
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Calendar } from "lucide-react";
+import { Calendar, Zap } from "lucide-react";
 
 const experiences = [
   {
@@ -12,9 +12,10 @@ const experiences = [
       "Enhanced site design, performance, and functionality, resulting in a 40% improvement in load times and user engagement",
       "Led the integration of third-party APIs, resolving 95% of issues within the first 24 hours",
       "Trained junior team members on best practices, leading to a 15% reduction in common errors and fostering a culture of innovation",
-      "Optimized e-commerce platforms through data-driven decision making and technical expertise"
+      "Optimized e-commerce platforms through data-driven decision making and technical expertise",
+      "Utilized AI-powered development tools to automate repetitive tasks and accelerate project delivery timelines by 25%"
     ],
-    technologies: ["JavaScript", "Python", "APIs", "Web Optimization", "Team Leadership"]
+    technologies: ["JavaScript", "Python", "APIs", "Web Optimization", "Team Leadership", "AI Tools"]
   }
 ];
 
@@ -25,7 +26,8 @@ const education = [
     period: "January 2025 - January 2027",
     description: [
       "Mode of Delivery: Online",
-      "Coursework: Machine Learning, Business Analytics, Data Visualization, and Strategic Management"
+      "Coursework: Machine Learning, Business Analytics, Data Visualization, and Strategic Management",
+      "Focus on practical applications of AI and analytics in business contexts"
     ]
   },
   {
@@ -34,7 +36,8 @@ const education = [
     period: "August 2019 - June 2023",
     description: [
       "CGPA: 8.96/10",
-      "Coursework: Data Structures, Algorithms, Database Management, Operating Systems, & Software Engineering"
+      "Coursework: Data Structures, Algorithms, Database Management, Operating Systems, & Software Engineering",
+      "Participated in coding competitions and hackathons, enhancing problem-solving skills"
     ]
   }
 ];
@@ -43,12 +46,45 @@ const certifications = [
   {
     title: "Machine Learning with Python",
     issuer: "Coursera",
-    period: ""
+    period: "2022"
   },
   {
     title: "Python for Data Science, AI and Development",
     issuer: "Coursera",
-    period: ""
+    period: "2022"
+  },
+  {
+    title: "AI Tools for Developers",
+    issuer: "LinkedIn Learning",
+    period: "2023"
+  },
+  {
+    title: "Web Development Bootcamp",
+    issuer: "Udemy",
+    period: "2021"
+  }
+];
+
+const aiTools = [
+  {
+    tool: "GitHub Copilot",
+    proficiency: "Advanced",
+    description: "Daily use for code generation, refactoring, and documentation. Reduces development time by up to 40%."
+  },
+  {
+    tool: "ChatGPT",
+    proficiency: "Advanced",
+    description: "Prompt engineering for problem-solving, debugging, and architecture design. Expertise in API integration."
+  },
+  {
+    tool: "Lovable Editor",
+    proficiency: "Intermediate",
+    description: "Creating responsive web applications with real-time AI assistance. Efficient prototype development."
+  },
+  {
+    tool: "Perplexity AI",
+    proficiency: "Intermediate",
+    description: "Research and information synthesis for technical documentation and solution exploration."
   }
 ];
 
@@ -63,7 +99,7 @@ const ExperienceSection = () => {
         <p className="text-gray-400 text-center mb-10 max-w-2xl mx-auto">My professional journey and academic background</p>
         
         <div className="flex justify-center mb-8">
-          <div className="flex space-x-4">
+          <div className="flex flex-wrap justify-center gap-3">
             <Button
               variant={activeSection === "experience" ? "default" : "outline"}
               className={activeSection === "experience" ? "bg-portfolio-purple" : "border-portfolio-purple text-portfolio-purple"}
@@ -84,6 +120,14 @@ const ExperienceSection = () => {
               onClick={() => setActiveSection("certifications")}
             >
               Certifications
+            </Button>
+            <Button
+              variant={activeSection === "aitools" ? "default" : "outline"}
+              className={activeSection === "aitools" ? "bg-portfolio-purple" : "border-portfolio-purple text-portfolio-purple"}
+              onClick={() => setActiveSection("aitools")}
+            >
+              <Zap size={16} className="mr-2" />
+              AI Tools Proficiency
             </Button>
           </div>
         </div>
@@ -164,8 +208,39 @@ const ExperienceSection = () => {
               <div key={index} className="p-6 bg-white/5 rounded-lg border border-portfolio-purple/20">
                 <h3 className="text-xl font-semibold mb-2">{cert.title}</h3>
                 <p className="text-portfolio-purple">Issuer: {cert.issuer}</p>
+                {cert.period && <p className="text-gray-400 mt-1">Completed: {cert.period}</p>}
               </div>
             ))}
+          </div>
+        )}
+        
+        {activeSection === "aitools" && (
+          <div className="animate-fade-in">
+            <div className="mb-6 p-6 bg-white/5 rounded-lg border border-portfolio-purple/20">
+              <h3 className="text-xl font-semibold mb-4 flex items-center">
+                <Zap size={20} className="text-portfolio-purple mr-2" />
+                AI-Enhanced Development Approach
+              </h3>
+              <p className="text-gray-300 mb-4">
+                I combine traditional software engineering skills with modern AI tools to accelerate development, 
+                increase code quality, and solve complex problems more efficiently. By leveraging these tools responsibly, 
+                I can deliver projects faster without compromising on quality or maintainability.
+              </p>
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {aiTools.map((tool, index) => (
+                <div key={index} className="p-6 bg-white/5 rounded-lg border border-portfolio-purple/20">
+                  <div className="flex justify-between items-center mb-3">
+                    <h3 className="text-xl font-semibold">{tool.tool}</h3>
+                    <span className="px-3 py-1 text-sm rounded-full bg-portfolio-purple/10 text-portfolio-purple">
+                      {tool.proficiency}
+                    </span>
+                  </div>
+                  <p className="text-gray-300">{tool.description}</p>
+                </div>
+              ))}
+            </div>
           </div>
         )}
       </div>

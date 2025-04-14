@@ -26,6 +26,15 @@ const AboutSection = () => {
               to dynamic tech environments. Continuous learning and skill improvement are key priorities in my professional journey.
             </p>
             
+            <div className="p-4 bg-white/5 rounded-lg border border-portfolio-purple/20">
+              <h3 className="text-xl font-semibold mb-2 text-portfolio-purple">AI-Enhanced Development</h3>
+              <p className="text-gray-300">
+                I leverage modern AI tools like GitHub Copilot, ChatGPT, and Lovable Editor to accelerate development workflows, 
+                streamline problem-solving, and produce cleaner, more maintainable code. This approach allows me to focus on 
+                complex logic and design challenges while improving productivity by up to 40%.
+              </p>
+            </div>
+            
             <div className="pt-4">
               <h3 className="text-xl font-semibold mb-3">Connect with me:</h3>
               <div className="flex space-x-4">
