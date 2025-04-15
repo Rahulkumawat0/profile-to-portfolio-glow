@@ -28,10 +28,10 @@ const formSchema = z.object({
 type FormValues = z.infer<typeof formSchema>;
 
 // EmailJS configuration 
-// You'll need to replace these with your actual EmailJS service ID, template ID, and user ID
-const EMAILJS_SERVICE_ID = "service_id"; // Replace with your actual service ID
-const EMAILJS_TEMPLATE_ID = "template_id"; // Replace with your actual template ID
-const EMAILJS_USER_ID = "user_id"; // Replace with your actual user ID
+// Replace these with the values from your EmailJS dashboard
+const EMAILJS_SERVICE_ID = "service_id"; // Your EmailJS service ID from the Services section
+const EMAILJS_TEMPLATE_ID = "template_id"; // Your EmailJS template ID from the Email Templates section
+const EMAILJS_USER_ID = "user_id"; // Your EmailJS Public Key from Account > API Keys
 
 const ContactSection = () => {
   const { toast } = useToast();
