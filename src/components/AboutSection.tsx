@@ -54,10 +54,15 @@ const AboutSection = () => {
                 >
                   <Linkedin size={24} />
                 </a>
-                <Button variant="ghost" className="text-gray-300 hover:text-portfolio-purple group flex items-center gap-2 p-0">
+                <a 
+                  href="/lovable-uploads/4cfda77c-c4c1-4f72-ac3b-f094a00199c1.png" 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-300 hover:text-portfolio-purple group flex items-center gap-2 p-0 transition-colors"
+                >
                   <FileText size={24} />
                   <span className="opacity-0 group-hover:opacity-100 transition-opacity">Resume</span>
-                </Button>
+                </a>
               </div>
             </div>
           </div>

@@ -109,7 +109,7 @@ const ProjectsSection = () => {
       description: "Developed a high-accuracy system for early detection of heart attack, breast cancer, & diabetes using advanced machine learning algorithms and data preprocessing techniques. Leveraged AI tools to optimize feature selection and model hyperparameters.",
       image: "https://images.unsplash.com/photo-1576671081803-5dcb9836dc61?auto=format&fit=crop&w=800&q=80",
       technologies: ["Python", "Streamlit", "Machine Learning", "Scikit-Learn", "Data Preprocessing", "Github Copilot"],
-      githubLink: "https://github.com/rahul-kumawat-8780",
+      githubLink: undefined,
       liveLink: "https://rahulkumawat0-disease-classification-webapp-app-h6iz46.streamlit.app/",
       period: "Oct 2022 - Dec 2022",
       results: [

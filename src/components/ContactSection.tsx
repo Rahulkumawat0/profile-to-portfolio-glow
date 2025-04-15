@@ -5,34 +5,82 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Mail, MessageSquare, Phone } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import * as z from 'zod';
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from '@/components/ui/form';
+
+// Create a schema for form validation
+const formSchema = z.object({
+  name: z.string().min(2, { message: 'Name must be at least 2 characters.' }),
+  email: z.string().email({ message: 'Please enter a valid email address.' }),
+  message: z.string().min(10, { message: 'Message must be at least 10 characters.' }),
+});
+
+type FormValues = z.infer<typeof formSchema>;
 
 const ContactSection = () => {
   const { toast } = useToast();
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: ''
-  });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
-  };
+  // Initialize form with react-hook-form
+  const form = useForm<FormValues>({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      name: '',
+      email: '',
+      message: '',
+    },
+  });
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
+  const onSubmit = async (data: FormValues) => {
     setIsSubmitting(true);
     
-    // Simulate form submission
-    setTimeout(() => {
+    try {
+      // Create a timestamp for the submission
+      const timestamp = new Date().toISOString();
+      
+      // Prepare the data to be saved
+      const contactData = {
+        ...data,
+        createdAt: timestamp,
+        status: 'unread'
+      };
+      
+      // Store data in localStorage as a temporary solution
+      // In a real application, this would be sent to a backend API
+      const existingMessages = JSON.parse(localStorage.getItem('contactMessages') || '[]');
+      existingMessages.push(contactData);
+      localStorage.setItem('contactMessages', JSON.stringify(existingMessages));
+      
+      // Simulate sending an email
+      console.log('Email would be sent with:', contactData);
+      
+      // Show success toast
       toast({
-        title: "Message sent!",
-        description: "Thanks for reaching out. I'll get back to you soon.",
+        title: "Message sent successfully!",
+        description: "Thank you for reaching out. I'll get back to you soon.",
       });
-      setFormData({ name: '', email: '', message: '' });
+      
+      // Reset form
+      form.reset();
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      toast({
+        title: "Something went wrong",
+        description: "There was an error sending your message. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
       setIsSubmitting(false);
-    }, 1500);
+    }
   };
 
   return (
@@ -84,61 +132,71 @@ const ContactSection = () => {
           <div className="bg-white/5 p-6 rounded-lg border border-portfolio-purple/20">
             <h3 className="text-xl font-semibold mb-4">Send a Message</h3>
             
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-1">
-                  Name
-                </label>
-                <Input
-                  id="name"
+            <Form {...form}>
+              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+                <FormField
+                  control={form.control}
                   name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  placeholder="Your name"
-                  required
-                  className="bg-white/10 border-gray-700 focus:border-portfolio-purple"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel className="text-gray-300">Name</FormLabel>
+                      <FormControl>
+                        <Input 
+                          placeholder="Your name" 
+                          className="bg-white/10 border-gray-700 focus:border-portfolio-purple" 
+                          {...field} 
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
                 />
-              </div>
-              
-              <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-1">
-                  Email
-                </label>
-                <Input
-                  id="email"
+                
+                <FormField
+                  control={form.control}
                   name="email"
-                  type="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  placeholder="Your email"
-                  required
-                  className="bg-white/10 border-gray-700 focus:border-portfolio-purple"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel className="text-gray-300">Email</FormLabel>
+                      <FormControl>
+                        <Input 
+                          placeholder="Your email" 
+                          className="bg-white/10 border-gray-700 focus:border-portfolio-purple" 
+                          {...field} 
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
                 />
-              </div>
-              
-              <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-1">
-                  Message
-                </label>
-                <Textarea
-                  id="message"
+                
+                <FormField
+                  control={form.control}
                   name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  placeholder="Your message"
-                  required
-                  className="bg-white/10 border-gray-700 focus:border-portfolio-purple min-h-[120px]"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel className="text-gray-300">Message</FormLabel>
+                      <FormControl>
+                        <Textarea 
+                          placeholder="Your message" 
+                          className="bg-white/10 border-gray-700 focus:border-portfolio-purple min-h-[120px]" 
+                          {...field} 
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
                 />
-              </div>
-              
-              <Button 
-                type="submit" 
-                className="w-full bg-portfolio-purple hover:bg-portfolio-light-purple text-white"
-                disabled={isSubmitting}
-              >
-                {isSubmitting ? "Sending..." : "Send Message"}
-              </Button>
-            </form>
+                
+                <Button 
+                  type="submit" 
+                  className="w-full bg-portfolio-purple hover:bg-portfolio-light-purple text-white"
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? "Sending..." : "Send Message"}
+                </Button>
+              </form>
+            </Form>
           </div>
         </div>
       </div>
