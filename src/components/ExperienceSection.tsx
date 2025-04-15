@@ -44,24 +44,58 @@ const education = [
 
 const certifications = [
   {
-    title: "Machine Learning with Python",
-    issuer: "Coursera",
-    period: "2022"
+    title: "Machine Learning",
+    issuer: "Stanford University (Coursera)",
+    period: "Jul 2022",
+    credential: "Credential ID: RNQZ68SWHM2F"
   },
   {
-    title: "Python for Data Science, AI and Development",
-    issuer: "Coursera",
-    period: "2022"
+    title: "Python for Data Science, AI & Development",
+    issuer: "IBM",
+    period: "Jul 2022",
+    credential: "Credential ID: 34UFGRGVFKN9"
   },
   {
-    title: "AI Tools for Developers",
-    issuer: "LinkedIn Learning",
-    period: "2023"
+    title: "Python Programming: A Concise Introduction",
+    issuer: "Wesleyan University (Coursera)",
+    period: "Jun 2022",
+    credential: "Credential ID: 9E7R4B5LPYDS"
   },
   {
-    title: "Web Development Bootcamp",
-    issuer: "Udemy",
-    period: "2021"
+    title: "Databases and SQL for Data Science with Python",
+    issuer: "IBM",
+    period: "Jul 2022",
+    credential: "Credential ID: 3GC4DMP2HKHD"
+  },
+  {
+    title: "Data Science Methodology",
+    issuer: "IBM",
+    period: "Jun 2022",
+    credential: "Credential ID: 8WKV5TAZGHX9"
+  },
+  {
+    title: "Introduction to Web Development with HTML, CSS, JavaScript",
+    issuer: "IBM",
+    period: "Jul 2022",
+    credential: "Credential ID: RNBLV37BKWWE"
+  },
+  {
+    title: "Programming in Python",
+    issuer: "Infosys Springboard",
+    period: "Apr 2022",
+    credential: "Credential ID: 9D94CGBF"
+  },
+  {
+    title: "Introduction to Cloud Computing",
+    issuer: "IBM",
+    period: "Jun 2022",
+    credential: "Credential ID: EDWB6XEAGL8P"
+  },
+  {
+    title: "What is Data Science?",
+    issuer: "IBM",
+    period: "Jun 2022",
+    credential: "Credential ID: S9JWXWDP96QD"
   }
 ];
 
@@ -209,6 +243,7 @@ const ExperienceSection = () => {
                 <h3 className="text-xl font-semibold mb-2">{cert.title}</h3>
                 <p className="text-portfolio-purple">Issuer: {cert.issuer}</p>
                 {cert.period && <p className="text-gray-400 mt-1">Completed: {cert.period}</p>}
+                {cert.credential && <p className="text-gray-400 text-sm mt-2">{cert.credential}</p>}
               </div>
             ))}
           </div>

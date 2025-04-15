@@ -110,7 +110,7 @@ const ProjectsSection = () => {
       image: "https://images.unsplash.com/photo-1576671081803-5dcb9836dc61?auto=format&fit=crop&w=800&q=80",
       technologies: ["Python", "Streamlit", "Machine Learning", "Scikit-Learn", "Data Preprocessing", "Github Copilot"],
       githubLink: "https://github.com/rahul-kumawat-8780",
-      liveLink: undefined,
+      liveLink: "https://rahulkumawat0-disease-classification-webapp-app-h6iz46.streamlit.app/",
       period: "Oct 2022 - Dec 2022",
       results: [
         "Achieved 94% classification accuracy for heart disease prediction, 10% higher than baseline models",
@@ -123,7 +123,7 @@ const ProjectsSection = () => {
       description: "Built a content-based movie recommendation system that analyzes user preferences and viewing history to suggest personalized movie recommendations, boosting engagement and user satisfaction.",
       image: "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=800&q=80",
       technologies: ["Python", "Streamlit", "Machine Learning", "NLP", "Content-Based Filtering", "ChatGPT"],
-      githubLink: "https://github.com/rahul-kumawat-8780",
+      githubLink: undefined,
       liveLink: undefined,
       period: "Jul 2022 - Aug 2022",
       results: [
