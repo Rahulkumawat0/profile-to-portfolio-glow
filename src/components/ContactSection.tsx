@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -18,7 +17,6 @@ import {
   FormMessage,
 } from '@/components/ui/form';
 
-// Create a schema for form validation
 const formSchema = z.object({
   name: z.string().min(2, { message: 'Name must be at least 2 characters.' }),
   email: z.string().email({ message: 'Please enter a valid email address.' }),
@@ -27,17 +25,14 @@ const formSchema = z.object({
 
 type FormValues = z.infer<typeof formSchema>;
 
-// EmailJS configuration 
-// Replace these with the values from your EmailJS dashboard
-const EMAILJS_SERVICE_ID = "service_id"; // Your EmailJS service ID from the Services section
-const EMAILJS_TEMPLATE_ID = "template_id"; // Your EmailJS template ID from the Email Templates section
-const EMAILJS_USER_ID = "user_id"; // Your EmailJS Public Key from Account > API Keys
+const EMAILJS_SERVICE_ID = "service_lznjofo";
+const EMAILJS_TEMPLATE_ID = "template_i9pftdq";
+const EMAILJS_USER_ID = "006GGeJ7-UgE1vn8M";
 
 const ContactSection = () => {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  // Initialize form with react-hook-form
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -51,31 +46,26 @@ const ContactSection = () => {
     setIsSubmitting(true);
     
     try {
-      // Create a timestamp for the submission
       const timestamp = new Date().toISOString();
       
-      // Prepare the data to be saved and sent
       const contactData = {
         ...data,
         createdAt: timestamp,
         status: 'unread'
       };
       
-      // Store data in localStorage for backup
       const existingMessages = JSON.parse(localStorage.getItem('contactMessages') || '[]');
       existingMessages.push(contactData);
       localStorage.setItem('contactMessages', JSON.stringify(existingMessages));
       
-      // Prepare email parameters
       const emailParams = {
         from_name: data.name,
         from_email: data.email,
         message: data.message,
-        to_name: "Rahul Kumawat", // Your name
+        to_name: "Rahul Kumawat",
         reply_to: data.email,
       };
       
-      // Send email using EmailJS
       const response = await emailjs.send(
         EMAILJS_SERVICE_ID,
         EMAILJS_TEMPLATE_ID,
@@ -85,13 +75,11 @@ const ContactSection = () => {
       
       console.log('Email sent successfully:', response);
       
-      // Show success toast
       toast({
         title: "Message sent successfully!",
         description: "Thank you for reaching out. I'll get back to you soon.",
       });
       
-      // Reset form
       form.reset();
     } catch (error) {
       console.error('Error submitting form:', error);
