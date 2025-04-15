@@ -8,6 +8,7 @@ import { useToast } from '@/hooks/use-toast';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
+import emailjs from 'emailjs-com';
 import {
   Form,
   FormControl,
@@ -25,6 +26,12 @@ const formSchema = z.object({
 });
 
 type FormValues = z.infer<typeof formSchema>;
+
+// EmailJS configuration 
+// You'll need to replace these with your actual EmailJS service ID, template ID, and user ID
+const EMAILJS_SERVICE_ID = "service_id"; // Replace with your actual service ID
+const EMAILJS_TEMPLATE_ID = "template_id"; // Replace with your actual template ID
+const EMAILJS_USER_ID = "user_id"; // Replace with your actual user ID
 
 const ContactSection = () => {
   const { toast } = useToast();
@@ -47,21 +54,36 @@ const ContactSection = () => {
       // Create a timestamp for the submission
       const timestamp = new Date().toISOString();
       
-      // Prepare the data to be saved
+      // Prepare the data to be saved and sent
       const contactData = {
         ...data,
         createdAt: timestamp,
         status: 'unread'
       };
       
-      // Store data in localStorage as a temporary solution
-      // In a real application, this would be sent to a backend API
+      // Store data in localStorage for backup
       const existingMessages = JSON.parse(localStorage.getItem('contactMessages') || '[]');
       existingMessages.push(contactData);
       localStorage.setItem('contactMessages', JSON.stringify(existingMessages));
       
-      // Simulate sending an email
-      console.log('Email would be sent with:', contactData);
+      // Prepare email parameters
+      const emailParams = {
+        from_name: data.name,
+        from_email: data.email,
+        message: data.message,
+        to_name: "Rahul Kumawat", // Your name
+        reply_to: data.email,
+      };
+      
+      // Send email using EmailJS
+      const response = await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        emailParams,
+        EMAILJS_USER_ID
+      );
+      
+      console.log('Email sent successfully:', response);
       
       // Show success toast
       toast({
@@ -197,6 +219,13 @@ const ContactSection = () => {
                 </Button>
               </form>
             </Form>
+            
+            <div className="mt-4 text-sm text-gray-400">
+              <p>
+                Note: For this contact form to work properly, you need to set up your EmailJS account 
+                and update the service ID, template ID, and user ID in the code.
+              </p>
+            </div>
           </div>
         </div>
       </div>
