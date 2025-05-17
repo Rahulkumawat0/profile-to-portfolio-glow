@@ -4,7 +4,10 @@ import { Button } from '@/components/ui/button';
 
 const AboutSection = () => {
   return (
-    <section id="about" className="py-20">
+    <section id="about" className="py-20 relative overflow-hidden">
+      {/* Background elements */}
+      <div className="absolute bottom-0 right-0 w-1/2 h-1/2 bg-gradient-radial from-portfolio-light-purple/10 to-transparent -z-10 blur-3xl"></div>
+      
       <div className="container mx-auto px-4 md:px-6">
         <h2 className="section-title text-3xl font-bold text-center mb-2">About Me</h2>
         <p className="text-gray-400 text-center mb-10 max-w-2xl mx-auto">Get to know me beyond the resume</p>
@@ -26,8 +29,8 @@ const AboutSection = () => {
               to dynamic tech environments. Continuous learning and skill improvement are key priorities in my professional journey.
             </p>
             
-            <div className="p-4 bg-white/5 rounded-lg border border-portfolio-purple/20">
-              <h3 className="text-xl font-semibold mb-2 text-portfolio-purple">AI-Enhanced Development</h3>
+            <div className="glass-effect p-5 rounded-xl">
+              <h3 className="text-xl font-semibold mb-2 text-portfolio-light-purple">AI-Enhanced Development</h3>
               <p className="text-gray-300">
                 I leverage modern AI tools like GitHub Copilot, ChatGPT, and Lovable Editor to accelerate development workflows, 
                 streamline problem-solving, and produce cleaner, more maintainable code. This approach allows me to focus on 
@@ -42,7 +45,7 @@ const AboutSection = () => {
                   href="https://github.com/rahul-kumawat-8780" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="text-gray-300 hover:text-portfolio-purple transition-colors"
+                  className="text-gray-300 hover:text-portfolio-purple transition-colors p-2 hover:bg-white/5 rounded-full"
                 >
                   <Github size={24} />
                 </a>
@@ -50,7 +53,7 @@ const AboutSection = () => {
                   href="https://www.linkedin.com/in/rahul-kumawat-8780/" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="text-gray-300 hover:text-portfolio-purple transition-colors"
+                  className="text-gray-300 hover:text-portfolio-purple transition-colors p-2 hover:bg-white/5 rounded-full"
                 >
                   <Linkedin size={24} />
                 </a>
@@ -58,7 +61,7 @@ const AboutSection = () => {
                   href="/lovable-uploads/4cfda77c-c4c1-4f72-ac3b-f094a00199c1.png" 
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gray-300 hover:text-portfolio-purple group flex items-center gap-2 p-0 transition-colors"
+                  className="text-gray-300 hover:text-portfolio-purple group flex items-center gap-2 p-2 hover:bg-white/5 rounded-full transition-colors"
                 >
                   <FileText size={24} />
                   <span className="opacity-0 group-hover:opacity-100 transition-opacity">Resume</span>
@@ -69,12 +72,12 @@ const AboutSection = () => {
           
           <div className="relative">
             <div className="relative h-80 w-80 mx-auto">
-              <div className="absolute inset-0 rounded-lg border-2 border-portfolio-purple animate-glow-pulse"></div>
-              <div className="absolute inset-0 bg-portfolio-dark rounded-lg overflow-hidden">
+              <div className="absolute inset-0 rounded-2xl border-2 border-portfolio-light-purple animate-glow-pulse"></div>
+              <div className="absolute inset-0 bg-portfolio-dark rounded-2xl overflow-hidden">
                 <img 
                   src="/lovable-uploads/fcb79b6c-def6-457f-8d55-070d0256a5d0.png" 
                   alt="Rahul Kumawat" 
-                  className="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity"
+                  className="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity hover:scale-105 transition-transform duration-700"
                 />
               </div>
             </div>

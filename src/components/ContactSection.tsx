@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -94,7 +95,11 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="py-20">
+    <section id="contact" className="py-20 relative overflow-hidden">
+      {/* Background elements */}
+      <div className="absolute bottom-0 right-0 w-full h-full bg-hero-pattern opacity-10 -z-10"></div>
+      <div className="absolute top-0 left-0 w-1/2 h-1/2 bg-gradient-radial from-portfolio-purple/10 to-transparent -z-10 blur-3xl"></div>
+      
       <div className="container mx-auto px-4 md:px-6">
         <h2 className="section-title">Get In Touch</h2>
         
@@ -106,40 +111,57 @@ const ContactSection = () => {
               get back to you!
             </p>
             
-            <div className="space-y-4">
+            <div className="space-y-5">
               <div className="flex items-start space-x-4">
-                <div className="bg-portfolio-purple/20 p-3 rounded-full text-portfolio-purple">
+                <div className="bg-portfolio-purple/20 p-3 rounded-full text-portfolio-light-purple">
                   <Mail size={20} />
                 </div>
                 <div>
                   <h3 className="font-medium">Email</h3>
-                  <p className="text-gray-400">rahulkumawat200901@gmail.com</p>
+                  <p className="text-gray-400">
+                    <a href="mailto:rahulkumawat200901@gmail.com" className="hover:text-portfolio-purple transition-colors">
+                      rahulkumawat200901@gmail.com
+                    </a>
+                  </p>
                 </div>
               </div>
               
               <div className="flex items-start space-x-4">
-                <div className="bg-portfolio-purple/20 p-3 rounded-full text-portfolio-purple">
+                <div className="bg-portfolio-purple/20 p-3 rounded-full text-portfolio-light-purple">
                   <Phone size={20} />
                 </div>
                 <div>
                   <h3 className="font-medium">Phone</h3>
-                  <p className="text-gray-400">+91 8780948614</p>
+                  <p className="text-gray-400">
+                    <a href="tel:+918780948614" className="hover:text-portfolio-purple transition-colors">
+                      +91 8780948614
+                    </a>
+                  </p>
                 </div>
               </div>
               
               <div className="flex items-start space-x-4">
-                <div className="bg-portfolio-purple/20 p-3 rounded-full text-portfolio-purple">
+                <div className="bg-portfolio-purple/20 p-3 rounded-full text-portfolio-light-purple">
                   <MessageSquare size={20} />
                 </div>
                 <div>
                   <h3 className="font-medium">Social Media</h3>
-                  <p className="text-gray-400">@rahul-kumawat-8780 on LinkedIn</p>
+                  <p className="text-gray-400">
+                    <a 
+                      href="https://www.linkedin.com/in/rahul-kumawat-8780/" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="hover:text-portfolio-purple transition-colors"
+                    >
+                      @rahul-kumawat-8780 on LinkedIn
+                    </a>
+                  </p>
                 </div>
               </div>
             </div>
           </div>
           
-          <div className="bg-white/5 p-6 rounded-lg border border-portfolio-purple/20">
+          <div className="glass-effect p-6 rounded-xl border border-white/10 shadow-xl">
             <h3 className="text-xl font-semibold mb-4">Send a Message</h3>
             
             <Form {...form}>
@@ -153,7 +175,7 @@ const ContactSection = () => {
                       <FormControl>
                         <Input 
                           placeholder="Your name" 
-                          className="bg-white/10 border-gray-700 focus:border-portfolio-purple" 
+                          className="bg-white/5 border-gray-700 focus:border-portfolio-purple" 
                           {...field} 
                         />
                       </FormControl>
@@ -171,7 +193,7 @@ const ContactSection = () => {
                       <FormControl>
                         <Input 
                           placeholder="Your email" 
-                          className="bg-white/10 border-gray-700 focus:border-portfolio-purple" 
+                          className="bg-white/5 border-gray-700 focus:border-portfolio-purple" 
                           {...field} 
                         />
                       </FormControl>
@@ -189,7 +211,7 @@ const ContactSection = () => {
                       <FormControl>
                         <Textarea 
                           placeholder="Your message" 
-                          className="bg-white/10 border-gray-700 focus:border-portfolio-purple min-h-[120px]" 
+                          className="bg-white/5 border-gray-700 focus:border-portfolio-purple min-h-[120px]" 
                           {...field} 
                         />
                       </FormControl>
@@ -200,20 +222,13 @@ const ContactSection = () => {
                 
                 <Button 
                   type="submit" 
-                  className="w-full bg-portfolio-purple hover:bg-portfolio-light-purple text-white"
+                  className="w-full bg-portfolio-purple hover:bg-portfolio-light-purple text-white transition-all duration-300 shadow-lg hover:shadow-portfolio-purple/30"
                   disabled={isSubmitting}
                 >
                   {isSubmitting ? "Sending..." : "Send Message"}
                 </Button>
               </form>
             </Form>
-            
-            <div className="mt-4 text-sm text-gray-400">
-              <p>
-                Note: For this contact form to work properly, you need to set up your EmailJS account 
-                and update the service ID, template ID, and user ID in the code.
-              </p>
-            </div>
           </div>
         </div>
       </div>

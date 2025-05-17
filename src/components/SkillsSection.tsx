@@ -9,13 +9,13 @@ interface SkillCardProps {
 
 const SkillCard = ({ title, skills, icon }: SkillCardProps) => {
   return (
-    <div className="bg-white/5 p-6 rounded-lg border border-portfolio-purple/20 skill-card transition-all duration-300">
-      <div className="text-portfolio-purple mb-4">{icon}</div>
+    <div className="glass-effect p-6 rounded-xl skill-card">
+      <div className="text-portfolio-light-purple mb-4">{icon}</div>
       <h3 className="text-xl font-semibold mb-3">{title}</h3>
       <ul className="space-y-2">
         {skills.map((skill, index) => (
           <li key={index} className="text-gray-300 flex items-center gap-2">
-            <span className="w-2 h-2 bg-portfolio-purple rounded-full"></span>
+            <span className="w-2 h-2 bg-portfolio-light-purple rounded-full"></span>
             {skill}
           </li>
         ))}
@@ -69,7 +69,11 @@ const SkillsSection = () => {
   ];
 
   return (
-    <section id="skills" className="py-20 bg-portfolio-dark/70">
+    <section id="skills" className="py-20 relative overflow-hidden">
+      {/* Background elements */}
+      <div className="absolute top-0 left-0 w-full h-full bg-hero-pattern opacity-10 -z-10"></div>
+      <div className="absolute top-0 left-0 w-1/2 h-1/2 bg-gradient-radial from-portfolio-purple/10 to-transparent -z-10 blur-3xl"></div>
+      
       <div className="container mx-auto px-4 md:px-6">
         <h2 className="section-title text-3xl font-bold text-center mb-2">Skills & Expertise</h2>
         <p className="text-gray-400 text-center mb-10 max-w-2xl mx-auto">A comprehensive toolkit built through academic excellence, professional experience, and modern AI-enhanced development</p>

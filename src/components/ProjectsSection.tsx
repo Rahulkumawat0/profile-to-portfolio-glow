@@ -28,12 +28,12 @@ const ProjectCard = ({
   return (
     <div className={`flex flex-col ${reverse ? 'md:flex-row-reverse' : 'md:flex-row'} gap-8 mb-20`}>
       {/* Project Image */}
-      <div className="w-full md:w-1/2 relative group">
-        <div className="absolute inset-0 bg-portfolio-purple/20 group-hover:bg-transparent transition-all duration-300 rounded-lg"></div>
+      <div className="w-full md:w-1/2 relative group rounded-2xl overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-portfolio-dark/90 z-10 group-hover:opacity-80 transition-opacity"></div>
         <img 
           src={image} 
           alt={title} 
-          className="w-full h-full object-cover rounded-lg shadow-xl"
+          className="w-full h-full object-cover rounded-2xl shadow-xl transition-transform duration-700 group-hover:scale-105"
         />
       </div>
       
@@ -41,14 +41,14 @@ const ProjectCard = ({
       <div className="w-full md:w-1/2 flex flex-col justify-center">
         <div className="flex justify-between items-center mb-3">
           <h3 className="text-2xl font-bold">{title}</h3>
-          <span className="text-sm text-portfolio-purple">{period}</span>
+          <span className="text-sm text-portfolio-light-purple">{period}</span>
         </div>
-        <div className="p-6 bg-white/5 rounded-lg mb-4 shadow-lg">
-          <p className="text-gray-300">{description}</p>
+        <div className="glass-effect p-6 rounded-xl mb-4">
+          <p className="text-gray-300 text-balance">{description}</p>
           
           {results.length > 0 && (
-            <div className="mt-4 border-t border-portfolio-purple/20 pt-4">
-              <h4 className="text-portfolio-purple font-semibold mb-2">Quantifiable Results:</h4>
+            <div className="mt-4 border-t border-white/10 pt-4">
+              <h4 className="text-portfolio-light-purple font-semibold mb-2">Quantifiable Results:</h4>
               <ul className="space-y-2">
                 {results.map((result, index) => (
                   <li key={index} className="text-gray-300 flex items-start gap-2">
@@ -65,7 +65,7 @@ const ProjectCard = ({
           {technologies.map((tech, index) => (
             <span 
               key={index} 
-              className="text-xs px-2 py-1 bg-white/10 rounded-full text-gray-200"
+              className="text-xs px-3 py-1.5 rounded-full text-gray-200 bg-white/10 border border-white/5"
             >
               {tech}
             </span>
@@ -150,7 +150,11 @@ const ProjectsSection = () => {
   ];
 
   return (
-    <section id="projects" className="py-20 bg-portfolio-dark/70">
+    <section id="projects" className="py-20 relative overflow-hidden">
+      {/* Background elements */}
+      <div className="absolute top-0 right-0 w-1/3 h-1/2 bg-gradient-radial from-portfolio-light-purple/10 to-transparent -z-10 blur-3xl"></div>
+      <div className="absolute bottom-0 left-0 w-1/3 h-1/2 bg-gradient-radial from-portfolio-purple/10 to-transparent -z-10 blur-3xl"></div>
+      
       <div className="container mx-auto px-4 md:px-6">
         <h2 className="section-title text-3xl font-bold text-center mb-2">Featured Projects</h2>
         <p className="text-gray-400 text-center mb-10 max-w-2xl mx-auto">A showcase of my technical skills, problem-solving abilities, and quantifiable results</p>
