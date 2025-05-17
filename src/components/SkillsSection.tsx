@@ -9,8 +9,8 @@ interface SkillCardProps {
 
 const SkillCard = ({ title, skills, icon }: SkillCardProps) => {
   return (
-    <div className="glass-effect p-6 rounded-xl skill-card">
-      <div className="text-portfolio-light-purple mb-4">{icon}</div>
+    <div className="glass-effect p-6 rounded-xl skill-card transition-all duration-300 hover:scale-105">
+      <div className="text-portfolio-light-purple mb-4 bg-white/5 p-3 rounded-lg inline-block">{icon}</div>
       <h3 className="text-xl font-semibold mb-3">{title}</h3>
       <ul className="space-y-2">
         {skills.map((skill, index) => (
@@ -73,6 +73,7 @@ const SkillsSection = () => {
       {/* Background elements */}
       <div className="absolute top-0 left-0 w-full h-full bg-hero-pattern opacity-10 -z-10"></div>
       <div className="absolute top-0 left-0 w-1/2 h-1/2 bg-gradient-radial from-portfolio-purple/10 to-transparent -z-10 blur-3xl"></div>
+      <div className="absolute bottom-1/2 right-0 w-1/3 h-1/2 bg-gradient-radial from-portfolio-light-purple/5 to-transparent -z-10 blur-3xl"></div>
       
       <div className="container mx-auto px-4 md:px-6">
         <h2 className="section-title text-3xl font-bold text-center mb-2">Skills & Expertise</h2>

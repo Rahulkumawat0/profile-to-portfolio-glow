@@ -1,5 +1,5 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&family=Lora:wght@400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -103,15 +103,19 @@
   h1, h2, h3, h4, h5, h6 {
     @apply font-heading;
   }
+  
+  p {
+    @apply leading-relaxed;
+  }
 }
 
 .section-title {
-  @apply text-3xl md:text-4xl font-bold mb-6 relative inline-block font-heading;
+  @apply text-3xl md:text-4xl font-bold mb-8 relative inline-block font-heading;
 }
 
 .section-title::after {
   content: "";
-  @apply absolute bottom-0 left-0 w-full h-1 bg-portfolio-purple rounded-full;
+  @apply absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-portfolio-purple to-portfolio-light-purple rounded-full;
 }
 
 .nav-link {
@@ -125,7 +129,7 @@
   height: 2px;
   bottom: -4px;
   left: 0;
-  background-color: theme('colors.portfolio.purple');
+  background: linear-gradient(90deg, theme('colors.portfolio.purple'), theme('colors.portfolio.light-purple'));
   transition: width 0.3s ease;
 }
 
@@ -138,22 +142,70 @@
 }
 
 .glow-border {
-  box-shadow: 0 0 5px theme('colors.portfolio.purple'), 0 0 10px theme('colors.portfolio.purple');
+  box-shadow: 0 0 10px theme('colors.portfolio.purple'), 0 0 20px rgba(167, 139, 250, 0.2);
 }
 
 .skill-card {
   @apply transition-all duration-300 hover:bg-white/10;
+  border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .skill-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(167, 139, 250, 0.3);
+  box-shadow: 0 10px 25px rgba(167, 139, 250, 0.2);
+  border: 1px solid rgba(167, 139, 250, 0.3);
 }
 
 .glass-effect {
   @apply backdrop-blur-md bg-white/5 border border-white/10;
 }
 
+.enhanced-glass-effect {
+  @apply backdrop-blur-lg bg-gradient-to-br from-white/10 to-white/5 border border-white/15 shadow-lg;
+}
+
 .text-balance {
   text-wrap: balance;
+}
+
+/* Animated gradient text */
+.gradient-text {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-portfolio-purple to-portfolio-light-purple;
+  background-size: 200% 100%;
+  animation: gradientFlow 3s ease infinite;
+}
+
+@keyframes gradientFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Enhanced transition effects */
+.transition-smooth {
+  @apply transition-all duration-300 ease-in-out;
+}
+
+/* Custom scroll bar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(167, 139, 250, 0.5);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(167, 139, 250, 0.8);
 }
