@@ -1,4 +1,3 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&family=Lora:wght@400;500;600;700&display=swap');
 
 @tailwind base;
@@ -93,11 +92,11 @@
   }
 
   body {
-    @apply bg-portfolio-dark text-white font-sans;
+    @apply bg-gradient-to-br from-slate-900 via-gray-900 to-slate-800 text-white font-sans;
     background-image: 
-      radial-gradient(circle at 20% 50%, rgba(139, 92, 246, 0.1) 0%, transparent 50%),
-      radial-gradient(circle at 80% 20%, rgba(167, 139, 250, 0.1) 0%, transparent 50%),
-      radial-gradient(circle at 40% 80%, rgba(139, 92, 246, 0.05) 0%, transparent 50%);
+      radial-gradient(circle at 20% 50%, rgba(16, 185, 129, 0.15) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, rgba(6, 182, 212, 0.15) 0%, transparent 50%),
+      radial-gradient(circle at 40% 80%, rgba(139, 92, 246, 0.1) 0%, transparent 50%);
   }
 
   html {
@@ -114,18 +113,18 @@
 }
 
 .section-title {
-  @apply text-3xl md:text-4xl font-bold mb-8 relative inline-block font-heading;
+  @apply text-4xl md:text-5xl font-bold mb-10 relative inline-block font-heading;
 }
 
 .section-title::after {
   content: "";
-  @apply absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-portfolio-purple via-portfolio-light-purple to-portfolio-purple rounded-full;
-  animation: shimmer 3s ease-in-out infinite;
+  @apply absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-emerald-500 via-cyan-500 to-violet-500 rounded-full;
+  animation: shimmer 4s ease-in-out infinite;
 }
 
 .nav-link {
   position: relative;
-  @apply transition-all duration-300;
+  @apply transition-all duration-500;
 }
 
 .nav-link::after {
@@ -133,10 +132,10 @@
   position: absolute;
   width: 0;
   height: 3px;
-  bottom: -6px;
+  bottom: -8px;
   left: 0;
-  background: linear-gradient(90deg, theme('colors.portfolio.purple'), theme('colors.portfolio.light-purple'));
-  transition: width 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  background: linear-gradient(90deg, rgb(16, 185, 129), rgb(6, 182, 212), rgb(139, 92, 246));
+  transition: width 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   border-radius: 2px;
 }
 
@@ -150,23 +149,23 @@
 
 .glow-border {
   box-shadow: 
-    0 0 20px theme('colors.portfolio.purple'), 
-    0 0 40px rgba(167, 139, 250, 0.3),
-    inset 0 0 20px rgba(167, 139, 250, 0.1);
+    0 0 25px rgb(16, 185, 129), 
+    0 0 50px rgba(16, 185, 129, 0.4),
+    inset 0 0 25px rgba(16, 185, 129, 0.1);
 }
 
 .skill-card {
-  @apply transition-all duration-500 hover:bg-white/5 relative overflow-hidden;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(20px);
+  @apply transition-all duration-700 hover:bg-white/10 relative overflow-hidden;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(25px);
 }
 
 .skill-card:hover {
-  transform: translateY(-8px) scale(1.02);
+  transform: translateY(-12px) scale(1.03);
   box-shadow: 
-    0 20px 40px rgba(167, 139, 250, 0.2),
-    0 0 0 1px rgba(167, 139, 250, 0.3);
-  border: 1px solid rgba(167, 139, 250, 0.4);
+    0 25px 50px rgba(16, 185, 129, 0.25),
+    0 0 0 1px rgba(16, 185, 129, 0.4);
+  border: 1px solid rgba(16, 185, 129, 0.5);
 }
 
 .skill-card::before {
@@ -176,8 +175,8 @@
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(167, 139, 250, 0.1), transparent);
-  transition: left 0.5s;
+  background: linear-gradient(90deg, transparent, rgba(16, 185, 129, 0.15), transparent);
+  transition: left 0.7s;
 }
 
 .skill-card:hover::before {
@@ -185,19 +184,19 @@
 }
 
 .glass-effect {
-  @apply backdrop-blur-lg bg-white/5 border border-white/10;
+  @apply backdrop-blur-xl bg-white/8 border border-white/15;
   box-shadow: 
-    0 8px 32px rgba(0, 0, 0, 0.2),
-    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    0 12px 40px rgba(0, 0, 0, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
 }
 
 .enhanced-glass-effect {
-  @apply backdrop-blur-xl bg-gradient-to-br from-white/10 to-white/5 border border-white/15;
+  @apply backdrop-blur-2xl bg-gradient-to-br from-white/15 to-white/8 border border-white/20;
   box-shadow: 
-    0 16px 40px rgba(0, 0, 0, 0.3),
-    0 8px 16px rgba(167, 139, 250, 0.1),
-    inset 0 2px 0 rgba(255, 255, 255, 0.1),
-    inset 0 0 20px rgba(167, 139, 250, 0.05);
+    0 20px 50px rgba(0, 0, 0, 0.35),
+    0 12px 20px rgba(16, 185, 129, 0.15),
+    inset 0 2px 0 rgba(255, 255, 255, 0.15),
+    inset 0 0 25px rgba(16, 185, 129, 0.08);
 }
 
 .text-balance {
@@ -206,9 +205,9 @@
 
 /* Enhanced gradient text */
 .gradient-text {
-  @apply bg-clip-text text-transparent bg-gradient-to-r from-portfolio-purple via-portfolio-light-purple to-portfolio-purple;
-  background-size: 300% 100%;
-  animation: gradientFlow 4s ease infinite;
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 via-cyan-400 to-violet-400;
+  background-size: 400% 100%;
+  animation: gradientFlow 6s ease infinite;
 }
 
 @keyframes gradientFlow {
@@ -223,39 +222,39 @@
   }
 }
 
-/* Professional transitions */
+/* Enhanced transitions */
 .transition-smooth {
-  @apply transition-all duration-500 ease-out;
+  @apply transition-all duration-700 ease-out;
 }
 
 .transition-bounce {
-  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
 /* Enhanced scroll bar */
 ::-webkit-scrollbar {
-  width: 12px;
+  width: 14px;
 }
 
 ::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0.02);
-  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 8px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(45deg, rgba(167, 139, 250, 0.6), rgba(139, 92, 246, 0.6));
-  border-radius: 6px;
+  background: linear-gradient(45deg, rgba(16, 185, 129, 0.7), rgba(6, 182, 212, 0.7));
+  border-radius: 8px;
   border: 2px solid rgba(255, 255, 255, 0.1);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(45deg, rgba(167, 139, 250, 0.8), rgba(139, 92, 246, 0.8));
+  background: linear-gradient(45deg, rgba(16, 185, 129, 0.9), rgba(6, 182, 212, 0.9));
 }
 
-/* Professional button styles */
+/* Enhanced button styles */
 .professional-button {
-  @apply relative overflow-hidden transition-all duration-300;
-  background: linear-gradient(135deg, theme('colors.portfolio.purple'), theme('colors.portfolio.light-purple'));
+  @apply relative overflow-hidden transition-all duration-500;
+  background: linear-gradient(135deg, rgb(16, 185, 129), rgb(6, 182, 212));
 }
 
 .professional-button::before {
@@ -265,41 +264,60 @@
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-  transition: left 0.5s;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
+  transition: left 0.7s;
 }
 
 .professional-button:hover::before {
   left: 100%;
 }
 
-/* Floating elements animation */
+/* Enhanced floating animation */
 @keyframes float-gentle {
   0%, 100% { 
     transform: translateY(0px) rotate(0deg);
   }
   33% { 
-    transform: translateY(-10px) rotate(1deg);
+    transform: translateY(-15px) rotate(2deg);
   }
   66% { 
-    transform: translateY(-5px) rotate(-1deg);
+    transform: translateY(-8px) rotate(-2deg);
   }
 }
 
 .float-gentle {
-  animation: float-gentle 6s ease-in-out infinite;
+  animation: float-gentle 8s ease-in-out infinite;
 }
 
-/* Professional card hover effects */
+/* Enhanced card hover effects */
 .professional-card {
-  @apply transition-all duration-300 ease-out;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  @apply transition-all duration-500 ease-out;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
+  border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 .professional-card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-8px);
   box-shadow: 
-    0 20px 40px rgba(0, 0, 0, 0.3),
-    0 0 0 1px rgba(167, 139, 250, 0.2);
+    0 25px 50px rgba(0, 0, 0, 0.35),
+    0 0 0 1px rgba(16, 185, 129, 0.3);
+}
+
+/* Animated background patterns */
+.animated-bg {
+  background: linear-gradient(-45deg, #0f172a, #1e293b, #334155, #475569);
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
